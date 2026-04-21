@@ -1,0 +1,32 @@
+{
+  "table_name": "orders",
+  "columns": [
+    {
+      "name": "order_id",
+      "type": "integer",
+      "nullable": false,
+      "is_primary_key": true
+    },
+    {
+      "name": "customer_id",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "order_date",
+      "type": "date",
+      "nullable": false
+    },
+    {
+      "name": "amount",
+      "type": "decimal",
+      "nullable": false
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "nullable": true,
+      "accepted_values": ["pending", "paid", "cancelled"]
+    }
+  ]
+}

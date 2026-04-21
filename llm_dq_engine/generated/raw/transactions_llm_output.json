@@ -1,0 +1,31 @@
+```json
+{
+  "table_name": "transactions",
+  "dbt_tests": [
+    {
+      "column": "transaction_id",
+      "tests": ["not_null", "unique"]
+    },
+    {
+      "column": "account_id",
+      "tests": ["not_null"]
+    },
+    {
+      "column": "transaction_date",
+      "tests": []
+    }
+  ],
+  "gx_expectations": [
+    {
+      "expectation_type": "contains_value",
+      "column": "payment_status",
+      "kwargs": {}
+    },
+    {
+      "expectation_type": "equal_to",
+      "column": "amount",
+      "kwargs": {"value": 100}
+    }
+  ]
+}
+```

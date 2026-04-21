@@ -1,0 +1,32 @@
+{
+  "table_name": "transactions",
+  "columns": [
+    {
+      "name": "transaction_id",
+      "type": "integer",
+      "nullable": false,
+      "is_primary_key": true
+    },
+    {
+      "name": "account_id",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "transaction_date",
+      "type": "date",
+      "nullable": false
+    },
+    {
+      "name": "amount",
+      "type": "decimal",
+      "nullable": false
+    },
+    {
+      "name": "payment_status",
+      "type": "string",
+      "nullable": true,
+      "accepted_values": ["success", "failed", "pending"]
+    }
+  ]
+}
