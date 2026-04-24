@@ -1,3 +1,4 @@
+```json
 {
   "table_name": "orders",
   "dbt_tests": [
@@ -7,28 +8,14 @@
     },
     {
       "column": "customer_id",
-      "tests": ["not_null", "unique"]
-    },
-    {
-      "column": "order_date",
-      "tests": ["not_null", "unique"]
-    },
-    {
-      "column": "amount",
-      "tests": ["not_null", "unique"]
+      "tests": ["not_null"]
     }
   ],
   "gx_expectations": [
     {
-      "expectation_type": "in_list",
-      "column": "status",
-      "kwargs": {
-        "values": [
-          "pending",
-          "paid",
-          "cancelled"
-        ]
-      }
+      "expectation_type": "injection_value_inferred",
+      "column": "status"
     }
   ]
 }
+```

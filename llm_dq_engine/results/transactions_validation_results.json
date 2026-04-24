@@ -1,0 +1,63 @@
+{
+  "table_name": "transactions",
+  "total_checks": 6,
+  "passed_checks": 3,
+  "failed_checks": 3,
+  "all_passed": false,
+  "checks": [
+    {
+      "column": "transaction_id",
+      "check_type": "not_null",
+      "passed": true,
+      "failed_count": 0,
+      "failed_rows": []
+    },
+    {
+      "column": "transaction_id",
+      "check_type": "unique",
+      "passed": false,
+      "failed_count": 2,
+      "failed_rows": [
+        1,
+        2
+      ]
+    },
+    {
+      "column": "account_id",
+      "check_type": "not_null",
+      "passed": false,
+      "failed_count": 1,
+      "failed_rows": [
+        3
+      ]
+    },
+    {
+      "column": "transaction_date",
+      "check_type": "not_null",
+      "passed": true,
+      "failed_count": 0,
+      "failed_rows": []
+    },
+    {
+      "column": "amount",
+      "check_type": "not_null",
+      "passed": true,
+      "failed_count": 0,
+      "failed_rows": []
+    },
+    {
+      "column": "payment_status",
+      "check_type": "accepted_values",
+      "passed": false,
+      "failed_count": 1,
+      "failed_rows": [
+        3
+      ],
+      "allowed_values": [
+        "success",
+        "failed",
+        "pending"
+      ]
+    }
+  ]
+}

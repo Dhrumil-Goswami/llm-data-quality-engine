@@ -1,34 +1,68 @@
-# 🚀 LLM Data Quality Engine
+# LLM-Augmented Data Quality Engine
 
-Generate dbt tests and Great Expectations rules automatically using a local LLM.
+## Overview
+This project uses an LLM to generate structured data quality suggestions from schema metadata, validates that output, and converts it into dbt YAML and Great Expectations style expectation files.
 
-## 💡 Overview
+## Problem
+Writing data quality checks manually for every dataset takes time. This project automates the first draft of those checks using schema-driven prompting and validation logic.
 
-This project reduces manual data validation work by generating structured validation rules directly from schema metadata.
+## Features
+- Reads table metadata from JSON
+- Sends schema context to a local LLM
+- Validates LLM output using Pydantic
+- Generates dbt YAML files
+- Generates GX expectation JSON files
+- Executes selected checks locally on sample CSV data
+- Saves pass/fail validation results
 
-## ⚙️ Stack
+## Project Flow
+Metadata -> LLM -> Validated structured output -> dbt YAML / GX JSON -> Local validation results
 
-Python • Pydantic • Ollama • dbt • Great Expectations
+## Example Inputs
+- metadata/orders.json
+- metadata/transactions.json
 
-## 📂 Input
+## Example Outputs
+- generated/dbt/orders.yml
+- generated/gx/orders_expectations.json
+- results/orders_validation_results.json
 
-Schema metadata (JSON)
+## Tech Stack
+- Python
+- Pandas
+- Pydantic
+- PyYAML
+- Ollama
+- qwen2.5:1.5b
 
-## 📤 Output
+## Future Improvements
+- Add profiling stats to prompts
+- Add custom SQL/dbt tests
+- Add confidence scoring for LLM rules
+- Add cloud execution flow with Databricks/dbt Cloud
 
-Structured validation rules:
+## Architecture explanation
 
-* dbt tests
-* Great Expectations expectations
+-	metadata JSON
+	    ->
+	schema_reader.py
+	    ->
+	llm_generator.py
+	    ->
+	validator.py
+	    ->
+	dbt_writer.py / gx_writer.py
+	    ->
+	check_runner.py
+	    ->
+	results JSON
 
-## 🎯 Impact
+## Flow explanation
 
-~80% reduction in manual validation effort
-
-## 🌐 Demo
-
-Live preview: [GitHub Pages link]
-
-## 📁 Example Output
-
-See `demo_output.json`
+-	1. Read table metadata
+	2. Send metadata to local LLM
+	3. Get structured rule suggestions
+	4. Validate LLM output
+	5. Generate dbt YAML and GX expectation files
+	6. Run checks on sample data
+	7. Save pass/fail results

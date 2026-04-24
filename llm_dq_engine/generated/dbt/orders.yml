@@ -1,0 +1,25 @@
+version: 2
+models:
+- name: orders
+  columns:
+  - name: order_id
+    data_tests:
+    - not_null
+    - unique
+  - name: customer_id
+    data_tests:
+    - not_null
+  - name: order_date
+    data_tests:
+    - not_null
+  - name: amount
+    data_tests:
+    - not_null
+  - name: status
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - pending
+          - paid
+          - cancelled

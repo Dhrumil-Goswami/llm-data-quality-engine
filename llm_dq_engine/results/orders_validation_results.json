@@ -1,0 +1,63 @@
+{
+  "table_name": "orders",
+  "total_checks": 6,
+  "passed_checks": 3,
+  "failed_checks": 3,
+  "all_passed": false,
+  "checks": [
+    {
+      "column": "order_id",
+      "check_type": "not_null",
+      "passed": true,
+      "failed_count": 0,
+      "failed_rows": []
+    },
+    {
+      "column": "order_id",
+      "check_type": "unique",
+      "passed": false,
+      "failed_count": 2,
+      "failed_rows": [
+        1,
+        2
+      ]
+    },
+    {
+      "column": "customer_id",
+      "check_type": "not_null",
+      "passed": false,
+      "failed_count": 1,
+      "failed_rows": [
+        3
+      ]
+    },
+    {
+      "column": "order_date",
+      "check_type": "not_null",
+      "passed": true,
+      "failed_count": 0,
+      "failed_rows": []
+    },
+    {
+      "column": "amount",
+      "check_type": "not_null",
+      "passed": true,
+      "failed_count": 0,
+      "failed_rows": []
+    },
+    {
+      "column": "status",
+      "check_type": "accepted_values",
+      "passed": false,
+      "failed_count": 1,
+      "failed_rows": [
+        3
+      ],
+      "allowed_values": [
+        "pending",
+        "paid",
+        "cancelled"
+      ]
+    }
+  ]
+}

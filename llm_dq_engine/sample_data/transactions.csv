@@ -1,0 +1,5 @@
+transaction_id,account_id,transaction_date,amount,payment_status
+1001,5001,2026-04-20,300.00,success
+1002,5002,2026-04-21,150.00,pending
+1002,5003,2026-04-22,200.00,failed
+1004,,2026-04-23,50.00,invalid

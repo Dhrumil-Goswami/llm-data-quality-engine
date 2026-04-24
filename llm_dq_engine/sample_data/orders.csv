@@ -1,0 +1,5 @@
+order_id,customer_id,order_date,amount,status
+1,101,2026-04-20,120.50,pending
+2,102,2026-04-21,250.00,paid
+2,103,2026-04-22,75.00,cancelled
+4,,2026-04-23,90.00,unknown

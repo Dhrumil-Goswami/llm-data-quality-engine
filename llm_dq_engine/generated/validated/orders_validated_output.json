@@ -11,36 +11,15 @@
     {
       "column": "customer_id",
       "tests": [
-        "not_null",
-        "unique"
-      ]
-    },
-    {
-      "column": "order_date",
-      "tests": [
-        "not_null",
-        "unique"
-      ]
-    },
-    {
-      "column": "amount",
-      "tests": [
-        "not_null",
-        "unique"
+        "not_null"
       ]
     }
   ],
   "gx_expectations": [
     {
-      "expectation_type": "in_list",
+      "expectation_type": "injection_value_inferred",
       "column": "status",
-      "kwargs": {
-        "values": [
-          "pending",
-          "paid",
-          "cancelled"
-        ]
-      }
+      "kwargs": {}
     }
   ]
 }
